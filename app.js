@@ -17,7 +17,7 @@ const runtimeEnvironment = process.env.NODE_ENV || 'development';
 // Security middleware
 if(runtimeEnvironment === 'production') {
     app.use(lusca.hsts({maxAge: 3000}));
-    app.use(enforceHttps());
+    app.use(enforceHttps({ trustProtoHeader: true }));
 }
 
 // global middlewares
